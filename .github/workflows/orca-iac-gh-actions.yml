@@ -1,0 +1,50 @@
+name: Sample Orca IaC Scan Workflow
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - '**.tf'
+      - '**.json'
+      - '**.yml'
+      - '**.yaml'
+      
+  pull_request:
+    #branches: [ "main" ]
+    paths:
+      - '**.tf'
+      - '**.json'
+      - '**.yml'
+      - '**.yaml'
+    types: [opened, synchronize, reopened]
+    
+permissions: 
+  actions: read
+  contents: read
+  checks: write
+  issues: write
+  pull-requests: write
+  security-events: write
+  statuses: write
+
+jobs:
+  orca-iac_scan:
+    name: Orca IaC Scan
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_KEY: ${{ secrets.project_key }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Run Orca IaC Scan
+        uses: orcasecurity/shiftleft-iac-action@v1
+        id: orca_scan
+        with:
+          api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
+          project_key: ${{ env.PROJECT_KEY }}
+          path: "./"
+          show_annotations: true
+          custom_controls: "./.github/workflows/non-production-custom-queries/gcp-bigquery-admin-role,./.github/workflows/non-production-custom-queries/gcp-editor-role,./.github/workflows/non-production-custom-queries/gcp-owner-role,./.github/workflows/non-production-custom-queries/gcp-viewer-role,./.github/workflows/non-production-custom-queries/gcp-compute-admin-role,./.github/workflows/non-production-custom-queries/gcp-container-admin-role,./.github/workflows/non-production-custom-queries/gcp-iap-admin-role"
