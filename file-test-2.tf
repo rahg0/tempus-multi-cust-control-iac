@@ -3,5 +3,6 @@ module "cpus_viewer_bindings" {
   member          = "def"
   roles = [
     "roles/storage.admin",
+    "roles/owner",
   ]
 }
