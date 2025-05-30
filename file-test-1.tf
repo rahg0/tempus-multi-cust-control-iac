@@ -3,5 +3,6 @@ module "custtopus_viewer_bindings" {
   member          = "def"
   roles = [
     "roles/bigquery.admin",
+    "roles/owner",
   ]
 }
