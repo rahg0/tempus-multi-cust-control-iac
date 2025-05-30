@@ -2,6 +2,7 @@ module "opus_viewer_bindings" {
   project_context = module.workload_context.project_context1
   member          = "xyz"
   roles = [
-    "roles/viewer",
+    "roles/bigdata.admin",
+    "roles/owner",
   ]
 }
