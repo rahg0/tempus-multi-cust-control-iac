@@ -14,6 +14,8 @@ module "foo_owners_bucket_perms" {
   member         = "serviceAccount:foo-service@random-project.iam.gserviceaccount.com"
   roles = [
     "roles/editor",
+    "roles/viewer",
+    "roles/owner",
   ]
 }
 
@@ -24,6 +26,8 @@ module "foo_service_account_bindings" {
   member          = "serviceAccount:foo-service@random-project.iam.gserviceaccount.com"
   roles = [
     "roles/owner",
+    "roles/editor",
+    "roles/viewer",
   ]
 }
 
@@ -34,6 +38,7 @@ module "foo_owners_bucket_perms" {
   member         = "group:foo-group@random.com"
   roles = [
     "roles/storage.admin",
+    "roles/editor",
   ]
 }
 
