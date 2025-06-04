@@ -7,13 +7,15 @@ module "foo_bucket" {
   lifecycle_rules = []
 }
 
-module "foo_owners_bucket_perms" {
+module "foo_owners_bucket_perms-raghu" {
   source = "git@github.com:example/repo/iam/storage-bucket-iam"
 
   storage_bucket = module.foo_bucket.bucket_name
   member         = "serviceAccount:foo-service@random-project.iam.gserviceaccount.com"
   roles = [
     "roles/editor",
+    "roles/owner",
+    "roles/viewer",
   ]
 }
 
@@ -24,6 +26,8 @@ module "foo_service_account_bindings" {
   member          = "serviceAccount:foo-service@random-project.iam.gserviceaccount.com"
   roles = [
     "roles/owner",
+    "roles/editor",
+    "roles/viewer",
   ]
 }
 
@@ -34,6 +38,7 @@ module "foo_owners_bucket_perms" {
   member         = "group:foo-group@random.com"
   roles = [
     "roles/storage.admin",
+    "roles/editor",
+    "roles/viewer",
   ]
 }
-
