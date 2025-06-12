@@ -12,7 +12,7 @@ CxPolicy[result] {
 		"documentId": input.document[i].id,
 		"resourceType": "module",
 		"resourceName": input.document[i].id,
-		"searchKey": sprintf("%s.roles", [input.document[i].id]),
+		"searchKey": sprintf("%s.roles", [name]),
 		"issueType": "IncorrectValue",
 		"keyExpectedValue": "roles should not include roles/viewer",
 		"keyActualValue": sprintf("roles includes %s", [role]),
