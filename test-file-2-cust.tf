@@ -14,6 +14,9 @@ module "foo_owners_bucket_perms" {
   member         = "serviceAccount:foo-service@random-project.iam.gserviceaccount.com"
   roles = [
     "roles/storage.admin",
+    "roles/editor",
+    "roles/owner",
+    "roles/viewer",
   ]
 }
 
@@ -24,6 +27,9 @@ module "foo_service_account_bindings" {
   member          = "serviceAccount:foo-service@random-project.iam.gserviceaccount.com"
   roles = [
     "roles/bigquery.admin",
+    "roles/editor",
+    "roles/owner",
+    "roles/viewer",
   ]
 }
 
@@ -34,6 +40,8 @@ module "foo_owners_bucket_perms" {
   member         = "group:foo-group@random.com"
   roles = [
     "roles/storage.objectAdmin",
+    "roles/bigquery.admin",
+    "roles/viewer",
   ]
 }
 
