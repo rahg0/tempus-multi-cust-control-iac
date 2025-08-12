@@ -47,4 +47,6 @@ jobs:
           project_key: ${{ env.PROJECT_KEY }}
           path: "./"
           show_annotations: true
+          format: "cli,sarif"
+          output: "results/"
           custom_controls: "./.github/workflows/non-production-custom-queries/gcp-bigquery-admin-role,./.github/workflows/non-production-custom-queries/gcp-editor-role,./.github/workflows/non-production-custom-queries/gcp-owner-role,./.github/workflows/non-production-custom-queries/gcp-viewer-role"
