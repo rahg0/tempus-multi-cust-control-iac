@@ -50,3 +50,8 @@ jobs:
           format: "cli,sarif"
           output: "results/"
           custom_controls: "./.github/workflows/non-production-custom-queries/gcp-bigquery-admin-role,./.github/workflows/non-production-custom-queries/gcp-editor-role,./.github/workflows/non-production-custom-queries/gcp-owner-role,./.github/workflows/non-production-custom-queries/gcp-viewer-role"
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: results.sarif
+          category: my-analysis-tool
