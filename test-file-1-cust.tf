@@ -27,6 +27,7 @@ module "foo_service_account_bindings_2" {
   roles = [
     "roles/editor",
     "roles/viewer",
+  ]
 }
 
 module "foo_owners_bucket_perms_3" {
