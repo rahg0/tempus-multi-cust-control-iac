@@ -23,6 +23,7 @@ module "foo_service_account_bindings_2" {
   project_context = module.workload_context.project_context
   member          = "serviceAccount:foo-service@random-project.iam.gserviceaccount.com"
   roles = [
+  ]
 }
 
 module "foo_owners_bucket_perms_3" {
