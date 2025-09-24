@@ -45,8 +45,8 @@ jobs:
           echo "Lising Big Query Admin files..."
           ls -lah .github/
           ls -lah .github/workflows/
-          ls -lah .github/workflows/production-custom-queries/
-          ls -lah .github/workflows/production-custom-queries/gcp-bigquery-admin-role
+          ls -lah .github/workflows/non-production-custom-queries/
+          ls -lah .github/workflows/non-production-custom-queries/gcp-bigquery-admin-role
         
       - name: Run Orca IaC Scan
         uses: orcasecurity/shiftleft-iac-action@v1
@@ -59,4 +59,4 @@ jobs:
           format: "cli,sarif"
           output: "results/"
           # custom_controls: "./.github/workflows/production-custom-queries/gcp-bigquery-admin-role,./.github/workflows/non-production-custom-queries/gcp-bigquery-admin-role,./.github/workflows/non-production-custom-queries/gcp-editor-role,./.github/workflows/non-production-custom-queries/gcp-owner-role,./.github/workflows/non-production-custom-queries/gcp-viewer-role"
-          custom_controls: "./.github/workflows/non-production-custom-queries/gcp-bigquery-admin-role,./.github/workflows/non-production-custom-queries/gcp-editor-role,./.github/workflows/non-production-custom-queries/gcp-owner-role,./.github/workflows/non-production-custom-queries/gcp-viewer-role"
+          custom_controls: ".github/workflows/non-production-custom-queries/gcp-bigquery-admin-role,./.github/workflows/non-production-custom-queries/gcp-editor-role,./.github/workflows/non-production-custom-queries/gcp-owner-role,./.github/workflows/non-production-custom-queries/gcp-viewer-role"
