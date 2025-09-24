@@ -43,7 +43,9 @@ jobs:
           echo "Lising all the files...."
           ls -lah
           echo "Lising Big Query Admin files..."
-          ls -lah /.github/workflows/production-custom-queries/gcp-bigquery-admin-role
+          ls -lah .github/
+          ls -lah .github/workflows/production-custom-queries
+          ls -lah .github/workflows/production-custom-queries/gcp-bigquery-admin-role
         
       - name: Run Orca IaC Scan
         uses: orcasecurity/shiftleft-iac-action@v1
