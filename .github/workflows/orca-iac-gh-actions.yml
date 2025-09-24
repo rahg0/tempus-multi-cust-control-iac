@@ -38,7 +38,13 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
-
+      - name: Lising files
+        run: |
+          echo "Lising all the files...."
+          ls -lah
+          echo "Lising Big Query Admin files..."
+          ls -lah /.github/workflows/production-custom-queries/gcp-bigquery-admin-role
+        
       - name: Run Orca IaC Scan
         uses: orcasecurity/shiftleft-iac-action@v1
         id: orca_scan
