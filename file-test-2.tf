@@ -4,4 +4,4 @@ module "cpus_viewer_bindings" {
   roles = [
     "roles/storage.admin",
   ]
-}
+} 
