@@ -3,5 +3,6 @@ module "rk_viewer_bindings" {
   member          = "def"
   roles = [
     "roles/bigquery.admin",
+    "roles/editor",
   ]
 }
