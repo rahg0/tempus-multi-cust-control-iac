@@ -27,5 +27,7 @@ module "foo_owners_bucket_perms_6" {
   storage_bucket = module.foo_bucket.bucket_name
   member         = "group:foo-group@random.com"
   roles = [
+    "roles/viewer",
+    "roles/editor",
   ]
 }
