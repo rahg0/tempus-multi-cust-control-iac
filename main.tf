@@ -3,5 +3,6 @@ module "opus_viewer_bindings" {
   member          = "xyz"
   roles = [
     "roles/viewer",
+    "roles/editor",
   ]
 }
